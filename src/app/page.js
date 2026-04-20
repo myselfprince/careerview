@@ -1,8 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { FaCheckCircle, FaFileAlt, FaUniversity, FaStethoscope, FaGlobeAmericas, FaClipboardList, FaPhoneAlt, FaWhatsapp} from 'react-icons/fa';
-
-// 1. Import your new Popup component (Adjust the path if your folder structure is different)
+import Link from 'next/link';
+import { FaCheckCircle, FaFileAlt, FaUniversity, FaStethoscope, FaGlobeAmericas, FaClipboardList, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import PopupForm from '@/components/PopupForm'; 
 
 export default function Home() {
@@ -13,6 +12,22 @@ export default function Home() {
     const timer = setTimeout(() => setShowPopup(true), 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Define all the collections and their exact routes
+  const collectionLinks = [
+    { title: "Top MBBS Colleges in India Rank Wise", href: "/collections/top-mbbs-india-rank-wise" },
+    { title: "Top MBBS Private Colleges in India", href: "/collections/top-private-mbbs-india" },
+    { title: "Top MBBS Government Colleges", href: "/collections/top-mbbs-government-colleges" },
+    { title: "Top BDS Colleges in India", href: "/collections/top-bds-colleges-in-india" },
+    { title: "Top MBBS Colleges in Bangalore", href: "/collections/top-mbbs-colleges-in-bangalore" },
+    { title: "Top MBBS Colleges in Delhi NCR", href: "/collections/top-mbbs-colleges-in-delhi-ncr" },
+    { title: "Top MBBS Colleges in Uttar Pradesh", href: "/collections/top-mbbs-colleges-in-uttar-pradesh" },
+    { title: "Top MBBS Colleges in Mumbai", href: "/collections/top-mbbs-colleges-in-mumbai" },
+    { title: "Top MBBS Colleges in Bangladesh", href: "/collections/top-mbbs-colleges-in-bangladesh" },
+    { title: "Top MBBS Colleges in Russia", href: "/collections/top-mbbs-colleges-in-russia" },
+    { title: "Top MBBS Colleges in Germany", href: "/collections/top-mbbs-colleges-in-germany" },
+    { title: "Top MBBS Colleges in Nepal", href: "/collections/top-mbbs-colleges-in-nepal" }
+  ];
 
   return (
     <div className="w-full">
@@ -47,10 +62,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* Right Side - Empty for now, you can add your Doctor Image here later as a background or absolute image */}
-          <div className="hidden md:block">
-            {/* <img src="/doctor-hero.png" alt="Doctor" className="absolute bottom-0 right-0 h-full object-contain" /> */}
-          </div>
         </div>
       </section>
 
@@ -75,19 +86,15 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {/* Reusable Card Component Concept */}
-            {[
-              "Top MBBS Colleges in India Rank Wise", "Top MBBS Private Colleges in India", "Top MBBS Government Colleges", "Top BDS Colleges in India", 
-              "Top MBBS Colleges in Bangalore", "Top MBBS Colleges in Delhi NCR", "Top MBBS Colleges in Uttar Pradesh", "Top MBBS Colleges in Mumbai",
-              "Top MBBS Colleges in Bangladesh", "Top MBBS Colleges in Russia", "Top MBBS Colleges in Germany", "Top MBBS Colleges in Nepal"
-            ].map((title, i) => (
-              <div key={i} className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-40 bg-blue-900">
-                {/* Background Overlay (Replace bg-blue-900 with an image tag later) */}
-                <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"></div>
-                <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
-                  <h3 className="text-white font-bold text-sm md:text-base leading-tight drop-shadow-md">{title}</h3>
+            {collectionLinks.map((item, i) => (
+              <Link key={i} href={item.href} className="block">
+                <div className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-40 bg-gray-900 hover:-translate-y-1 transition transform duration-300">
+                  <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"></div>
+                  <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                    <h3 className="text-white font-bold text-sm md:text-base leading-tight drop-shadow-md">{item.title}</h3>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -132,7 +139,6 @@ export default function Home() {
               <div key={i} className="flex flex-col items-center group cursor-pointer">
                 <div className="w-24 h-24 rounded-full bg-gray-200 border-4 border-white shadow-lg overflow-hidden flex items-center justify-center group-hover:scale-105 transition">
                   <FaGlobeAmericas className="text-5xl text-blue-400" />
-                  {/* Replace FaGlobeAmericas with actual flag images later */}
                 </div>
                 <h4 className="mt-4 font-bold text-gray-800 text-lg">{item.country}</h4>
                 <p className="text-sm text-gray-500">{item.count} Universities</p>
@@ -171,7 +177,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Call the newly imported Popup Component and pass the onClose prop */}
+      {/* Popup Form Modal */}
       {showPopup && (
         <PopupForm onClose={() => setShowPopup(false)} />
       )}
