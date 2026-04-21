@@ -19,13 +19,13 @@ export default function Home() {
     { title: "Top MBBS Private Colleges in India", href: "/collections/top-private-mbbs-india" },
     { title: "Top MBBS Government Colleges", href: "/collections/top-mbbs-government-colleges" },
     { title: "Top BDS Colleges in India", href: "/collections/top-bds-colleges-in-india" },
-    { title: "Top MBBS Colleges in Bangalore", href: "/collections/top-mbbs-colleges-in-bangalore" },
-    { title: "Top MBBS Colleges in Delhi NCR", href: "/collections/top-mbbs-colleges-in-delhi-ncr" },
+    // { title: "Top MBBS Colleges in Bangalore", href: "/collections/top-mbbs-colleges-in-bangalore" },
+    // { title: "Top MBBS Colleges in Delhi NCR", href: "/collections/top-mbbs-colleges-in-delhi-ncr" },
     { title: "Top MBBS Colleges in Uttar Pradesh", href: "/collections/top-mbbs-colleges-in-uttar-pradesh" },
     { title: "Top MBBS Colleges in Mumbai", href: "/collections/top-mbbs-colleges-in-mumbai" },
-    { title: "Top MBBS Colleges in Bangladesh", href: "/collections/top-mbbs-colleges-in-bangladesh" },
-    { title: "Top MBBS Colleges in Russia", href: "/collections/top-mbbs-colleges-in-russia" },
-    { title: "Top MBBS Colleges in Germany", href: "/collections/top-mbbs-colleges-in-germany" },
+    // { title: "Top MBBS Colleges in Bangladesh", href: "/collections/top-mbbs-colleges-in-bangladesh" },
+    // { title: "Top MBBS Colleges in Russia", href: "/collections/top-mbbs-colleges-in-russia" },
+    // { title: "Top MBBS Colleges in Germany", href: "/collections/top-mbbs-colleges-in-germany" },
     { title: "Top MBBS Colleges in Nepal", href: "/collections/top-mbbs-colleges-in-nepal" }
   ];
 
