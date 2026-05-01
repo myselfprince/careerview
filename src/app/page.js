@@ -10,7 +10,7 @@ export default function Home() {
 
   // 1. Popup Timer
   useEffect(() => {
-    const timer = setTimeout(() => setShowPopup(true), 20000);
+    const timer = setTimeout(() => setShowPopup(true), 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -54,7 +54,7 @@ export default function Home() {
   ];
 
   // Images for the scrolling background
-  const bgImages = ['/1.png', '/2.png', '/3.png', '/4.png', '/5.png', '/6.png', '/7.png', '/8.png'];
+  const bgImages = ['/1.jpeg', '/2.jpeg', '/3.jpeg', '/4.jpeg', '/5.jpeg', '/6.jpeg'];
 
   return (
     <div className="w-full">
