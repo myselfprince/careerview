@@ -1,48 +1,89 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { FaCheckCircle, FaFileAlt, FaUniversity, FaStethoscope, FaGlobeAmericas, FaClipboardList, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import PopupForm from '@/components/PopupForm'; 
 
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false);
+  const scrollContainerRef = useRef(null);
 
+  // 1. Popup Timer
   useEffect(() => {
-    // Show popup shortly after loading
-    const timer = setTimeout(() => setShowPopup(true), 2000);
+    const timer = setTimeout(() => setShowPopup(true), 20000);
     return () => clearTimeout(timer);
   }, []);
 
-  // Define all the collections and their exact routes
-  const collectionLinks = [
-    { title: "Top MBBS Colleges in India Rank Wise", href: "/collections/top-mbbs-india-rank-wise" },
-    { title: "Top MBBS Private Colleges in India", href: "/collections/top-private-mbbs-india" },
-    { title: "Top MBBS Government Colleges", href: "/collections/top-mbbs-government-colleges" },
-    { title: "Top BDS Colleges in India", href: "/collections/top-bds-colleges-in-india" },
-    // { title: "Top MBBS Colleges in Bangalore", href: "/collections/top-mbbs-colleges-in-bangalore" },
-    // { title: "Top MBBS Colleges in Delhi NCR", href: "/collections/top-mbbs-colleges-in-delhi-ncr" },
-    { title: "Top MBBS Colleges in Uttar Pradesh", href: "/collections/top-mbbs-colleges-in-uttar-pradesh" },
-    { title: "Top MBBS Colleges in Mumbai", href: "/collections/top-mbbs-colleges-in-mumbai" },
-    // { title: "Top MBBS Colleges in Bangladesh", href: "/collections/top-mbbs-colleges-in-bangladesh" },
-    { title: "Top MBBS Colleges in Russia", href: "/collections/top-mbbs-colleges-in-russia" },
-    { title: "Top MBBS Colleges in Germany", href: "/collections/top-mbbs-colleges-in-germany" },
-    { title: "Top MBBS Colleges in Nepal", href: "/collections/top-mbbs-colleges-in-nepal" },
-    { title: "Top MBBS Colleges in Uzbekistan", href: "/collections/top-mbbs-colleges-in-uzbekistan" }
+  // 2. Hero Background Auto-Scroll (Every 1 Second)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollContainerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+        // If reached the end, scroll back to start, else scroll one image width
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollContainerRef.current.scrollBy({ left: clientWidth, behavior: 'smooth' });
+        }
+      }
+    }, 3000); // Scrolls every 1 second
+    return () => clearInterval(interval);
+  }, []);
+
+  // Categorized Links
+  const indiaLinks = [
+    { title: "Top MBBS Colleges in India Rank Wise", href: "/collections/india/top-mbbs-india-rank-wise" },
+    { title: "Top MBBS Private Colleges in India", href: "/collections/india/top-private-mbbs-india" },
+    { title: "Top MBBS Government Colleges", href: "/collections/india/top-mbbs-government-colleges" },
+    { title: "Top BDS Colleges in India", href: "/collections/india/top-bds-colleges-in-india" },
+    { title: "Top MBBS Colleges in Uttar Pradesh", href: "/collections/india/top-mbbs-colleges-in-uttar-pradesh" },
+    { title: "Top MBBS Colleges in Mumbai", href: "/collections/india/top-mbbs-colleges-in-mumbai" },
   ];
+
+  const abroadLinks = [
+    { title: "Top MBBS Colleges in Russia", href: "/collections/abroad/top-mbbs-colleges-in-russia" },
+    { title: "Top MBBS Colleges in Germany", href: "/collections/abroad/top-mbbs-colleges-in-germany" },
+    { title: "Top MBBS Colleges in Nepal", href: "/collections/abroad/top-mbbs-colleges-in-nepal" },
+    { title: "Top MBBS Colleges in Uzbekistan", href: "/collections/abroad/top-mbbs-colleges-in-uzbekistan" }
+  ];
+
+  const nursingLinks = [
+    { title: "Nursing Colleges in Uttar Pradesh", href: "/collections/bsc-nursing/up" },
+    { title: "Nursing Colleges in Madhya Pradesh", href: "/collections/bsc-nursing/mp" },
+    { title: "BSC Nursing Colleges in Bihar", href: "/collections/bsc-nursing/bihar" },
+  ];
+
+  // Images for the scrolling background
+  const bgImages = ['/1.png', '/2.png', '/3.png', '/4.png', '/5.png', '/6.png', '/7.png', '/8.png'];
 
   return (
     <div className="w-full">
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section with Scrolling Background */}
       <section 
-        className="relative text-white overflow-hidden bg-cover bg-center bg-no-repeat min-h-[500px] flex items-center"
-        style={{ backgroundImage: "url('/homepage_clg.png')" }}
+        id="home"
+        className="relative text-white overflow-hidden min-h-[500px] flex items-center"
       >
-        {/* Dark overlay to ensure text visibility */}
-        <div className="absolute inset-0 bg-black/60 sm:bg-gradient-to-r sm:from-black/80 sm:via-black/60 sm:to-black/30"></div>
+        {/* Scrollable Image Container (Positioned absolutely behind everything) */}
+        <div 
+          ref={scrollContainerRef}
+          className="absolute inset-0 flex overflow-x-auto snap-x snap-mandatory no-scrollbar z-0"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {bgImages.map((src, i) => (
+            <img 
+              key={i} 
+              src={src} 
+              alt={`Background ${i + 1}`} 
+              className="w-full h-full object-cover flex-shrink-0 snap-center"
+            />
+          ))}
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 py-16 md:py-24 relative z-10 w-full">
-          
-          {/* Text Content */}
+        {/* Dark overlay (pointer-events-none so user can scroll images underneath) */}
+        <div className="absolute inset-0 bg-black/30 sm:bg-gradient-to-r sm:from-black/80 sm:via-black/60 sm:to-black/30 z-0 pointer-events-none"></div>
+
+        {/* Hero Content */}
+        <div className="max-w-7xl mx-auto px-4 py-16 md:py-24 relative z-10 w-full pointer-events-auto">
           <div className="max-w-2xl">
             <h2 className="text-5xl md:text-7xl font-extrabold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
               STUDY <br/><span className="text-white">MBBS</span>
@@ -71,7 +112,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -87,31 +127,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Top Collections Grid */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <span className="bg-red-100 text-red-600 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">Top Collections</span>
-            <h2 className="text-4xl font-extrabold text-gray-900 mt-4">Top MBBS Colleges in India And Abroad</h2>
-          </div>
+      {/* 3. Categorized Collections */}
+      <div className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 space-y-16">
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {collectionLinks.map((item, i) => (
-              <Link key={i} href={item.href} className="block">
-                <div className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-40 bg-gray-900 hover:-translate-y-1 transition transform duration-300">
-                  <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition duration-300"></div>
-                  <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
-                    <h3 className="text-white font-bold text-sm md:text-base leading-tight drop-shadow-md">{item.title}</h3>
+          {/* MBBS IN INDIA */}
+          <section id="mbbs-india" className="scroll-mt-20">
+            <div className="mb-6 border-b pb-2">
+              <span className="bg-red-100 text-red-600 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">India</span>
+              <h2 className="text-3xl font-extrabold text-gray-900 mt-4">Top MBBS Colleges in India</h2>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {indiaLinks.map((item, i) => (
+                <Link key={i} href={item.href} className="block">
+                  <div className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-32 bg-blue-900 hover:-translate-y-1 transition transform duration-300">
+                    <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition duration-300"></div>
+                    <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                      <h3 className="text-white font-bold text-sm leading-tight drop-shadow-md">{item.title}</h3>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* MBBS IN ABROAD */}
+          <section id="mbbs-abroad" className="scroll-mt-20">
+            <div className="mb-6 border-b pb-2">
+              <span className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">Abroad</span>
+              <h2 className="text-3xl font-extrabold text-gray-900 mt-4">Top MBBS Colleges in Abroad</h2>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {abroadLinks.map((item, i) => (
+                <Link key={i} href={item.href} className="block">
+                  <div className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-32 bg-green-900 hover:-translate-y-1 transition transform duration-300">
+                    <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition duration-300"></div>
+                    <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                      <h3 className="text-white font-bold text-sm leading-tight drop-shadow-md">{item.title}</h3>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* BSC NURSING */}
+          <section id="bsc-nursing" className="scroll-mt-20">
+            <div className="mb-6 border-b pb-2">
+              <span className="bg-pink-100 text-pink-600 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">Nursing</span>
+              <h2 className="text-3xl font-extrabold text-gray-900 mt-4">Top BSc Nursing Colleges</h2>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {nursingLinks.map((item, i) => (
+                <Link key={i} href={item.href} className="block">
+                  <div className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-32 bg-pink-900 hover:-translate-y-1 transition transform duration-300">
+                    <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition duration-300"></div>
+                    <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                      <h3 className="text-white font-bold text-sm leading-tight drop-shadow-md">{item.title}</h3>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
         </div>
-      </section>
+      </div>
 
       {/* 4. Consultation Banner */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-8 bg-white" id="contactus">
         <div className="max-w-7xl mx-auto px-4">
           <div className="bg-blue-600 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between shadow-xl text-white">
             <div className="mb-6 md:mb-0 text-center md:text-left">
@@ -132,10 +216,10 @@ export default function Home() {
       </section>
 
       {/* 5. MBBS Abroad Destinations */}
-      <section className="py-16 bg-white text-center">
+      <section className="py-16 bg-gray-50 text-center border-t">
         <div className="max-w-7xl mx-auto px-4">
           <span className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">Consult Now</span>
-          <h2 className="text-4xl font-extrabold text-gray-900 mt-4 mb-2">MBBS in Abroad for Indian Students</h2>
+          <h2 className="text-4xl font-extrabold text-gray-900 mt-4 mb-2">MBBS in Abroad Destinations</h2>
           <p className="text-gray-600 mb-12">Get admission in world-ranking top medical universities approved by NMC, WHO at lowest fees.</p>
           
           <div className="flex flex-wrap justify-center gap-8 md:gap-16">
@@ -147,7 +231,7 @@ export default function Home() {
               { country: "Nepal", count: "18+" },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center group cursor-pointer">
-                <div className="w-24 h-24 rounded-full bg-gray-200 border-4 border-white shadow-lg overflow-hidden flex items-center justify-center group-hover:scale-105 transition">
+                <div className="w-24 h-24 rounded-full bg-white border-4 border-gray-200 shadow-md overflow-hidden flex items-center justify-center group-hover:border-blue-400 group-hover:scale-105 transition">
                   <FaGlobeAmericas className="text-5xl text-blue-400" />
                 </div>
                 <h4 className="mt-4 font-bold text-gray-800 text-lg">{item.country}</h4>
@@ -159,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* 6. Reliable Services */}
-      <section className="py-16 bg-gray-50 border-t">
+      <section className="py-16 bg-white border-t">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-12">{process.env.NEXT_PUBLIC_BRAND_NAME} Reliable Services</h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
