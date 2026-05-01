@@ -30,27 +30,27 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Categorized Links
+  // Categorized Links with Image Paths added
   const indiaLinks = [
-    { title: "Top MBBS Colleges in India Rank Wise", href: "/collections/india/top-mbbs-india-rank-wise" },
-    { title: "Top MBBS Private Colleges in India", href: "/collections/india/top-private-mbbs-india" },
-    { title: "Top MBBS Government Colleges", href: "/collections/india/top-mbbs-government-colleges" },
-    { title: "Top BDS Colleges in India", href: "/collections/india/top-bds-colleges-in-india" },
-    { title: "Top MBBS Colleges in Uttar Pradesh", href: "/collections/india/top-mbbs-colleges-in-uttar-pradesh" },
-    { title: "Top MBBS Colleges in Mumbai", href: "/collections/india/top-mbbs-colleges-in-mumbai" },
+    { title: "Top MBBS Colleges in India Rank Wise", href: "/collections/india/top-mbbs-india-rank-wise", image: "/top-colleges/india/india.jpeg" },
+    { title: "Top MBBS Private Colleges in India", href: "/collections/india/top-private-mbbs-india", image: "/top-colleges/india/private.jpeg" },
+    { title: "Top MBBS Government Colleges", href: "/collections/india/top-mbbs-government-colleges", image: "/top-colleges/india/govt.jpeg" },
+    { title: "Top BDS Colleges in India", href: "/collections/india/top-bds-colleges-in-india", image: "/top-colleges/india/india.jpeg" },
+    { title: "Top MBBS Colleges in Uttar Pradesh", href: "/collections/india/top-mbbs-colleges-in-uttar-pradesh", image: "/top-colleges/india/up.jpeg" },
+    { title: "Top MBBS Colleges in Mumbai", href: "/collections/india/top-mbbs-colleges-in-mumbai", image: "/top-colleges/india/mumbai.jpeg" },
   ];
 
   const abroadLinks = [
-    { title: "Top MBBS Colleges in Russia", href: "/collections/abroad/top-mbbs-colleges-in-russia" },
-    { title: "Top MBBS Colleges in Germany", href: "/collections/abroad/top-mbbs-colleges-in-germany" },
-    { title: "Top MBBS Colleges in Nepal", href: "/collections/abroad/top-mbbs-colleges-in-nepal" },
-    { title: "Top MBBS Colleges in Uzbekistan", href: "/collections/abroad/top-mbbs-colleges-in-uzbekistan" }
+    { title: "Top MBBS Colleges in Russia", href: "/collections/abroad/top-mbbs-colleges-in-russia", image: "/top-colleges/abroad/russia.jpeg" },
+    { title: "Top MBBS Colleges in Germany", href: "/collections/abroad/top-mbbs-colleges-in-germany", image: "/top-colleges/abroad/germany.jpeg" },
+    { title: "Top MBBS Colleges in Nepal", href: "/collections/abroad/top-mbbs-colleges-in-nepal", image: "/top-colleges/abroad/nepal.jpeg" },
+    { title: "Top MBBS Colleges in Uzbekistan", href: "/collections/abroad/top-mbbs-colleges-in-uzbekistan", image: "/top-colleges/abroad/uzbekistan.jpeg" }
   ];
 
   const nursingLinks = [
-    { title: "Nursing Colleges in Uttar Pradesh", href: "/collections/bsc-nursing/up" },
-    { title: "Nursing Colleges in Madhya Pradesh", href: "/collections/bsc-nursing/mp" },
-    { title: "BSC Nursing Colleges in Bihar", href: "/collections/bsc-nursing/bihar" },
+    { title: "Nursing Colleges in Uttar Pradesh", href: "/collections/bsc-nursing/up", image: "/top-colleges/bds-nursing/up.jpeg" },
+    { title: "Nursing Colleges in Madhya Pradesh", href: "/collections/bsc-nursing/mp", image: "/top-colleges/bds-nursing/mp.jpeg" },
+    { title: "BSC Nursing Colleges in Bihar", href: "/collections/bsc-nursing/bihar", image: "/top-colleges/bds-nursing/nursing.jpeg" },
   ];
 
   // Images for the scrolling background
@@ -140,9 +140,10 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {indiaLinks.map((item, i) => (
                 <Link key={i} href={item.href} className="block">
-                  <div className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-32 bg-blue-900 hover:-translate-y-1 transition transform duration-300">
-                    <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition duration-300"></div>
-                    <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                  <div className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-32 bg-gray-700 hover:-translate-y-1 transition transform duration-300">
+                    <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover z-0" />
+                    <div className="absolute inset-0 bg-black/80 bg-opacity-20 group-hover:bg-opacity-40 transition duration-300 z-10"></div>
+                    <div className="absolute inset-0 flex items-center justify-center p-4 text-center z-20">
                       <h3 className="text-white font-bold text-sm leading-tight drop-shadow-md">{item.title}</h3>
                     </div>
                   </div>
@@ -160,9 +161,10 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {abroadLinks.map((item, i) => (
                 <Link key={i} href={item.href} className="block">
-                  <div className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-32 bg-green-900 hover:-translate-y-1 transition transform duration-300">
-                    <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition duration-300"></div>
-                    <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                  <div className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-32 bg-gray-800 hover:-translate-y-1 transition transform duration-300">
+                    <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover z-0" />
+                    <div className="absolute inset-0 bg-black/80 bg-opacity-50 group-hover:bg-opacity-40 transition duration-300 z-10"></div>
+                    <div className="absolute inset-0 flex items-center justify-center p-4 text-center z-20">
                       <h3 className="text-white font-bold text-sm leading-tight drop-shadow-md">{item.title}</h3>
                     </div>
                   </div>
@@ -180,9 +182,10 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {nursingLinks.map((item, i) => (
                 <Link key={i} href={item.href} className="block">
-                  <div className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-32 bg-pink-900 hover:-translate-y-1 transition transform duration-300">
-                    <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition duration-300"></div>
-                    <div className="absolute inset-0 flex items-center justify-center p-4 text-center">
+                  <div className="relative rounded-xl overflow-hidden shadow-md group cursor-pointer h-32 bg-gray-800 hover:-translate-y-1 transition transform duration-300">
+                    <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover z-0" />
+                    <div className="absolute inset-0 bg-black/80 bg-opacity-50 group-hover:bg-opacity-40 transition duration-300 z-10"></div>
+                    <div className="absolute inset-0 flex items-center justify-center p-4 text-center z-20">
                       <h3 className="text-white font-bold text-sm leading-tight drop-shadow-md">{item.title}</h3>
                     </div>
                   </div>
