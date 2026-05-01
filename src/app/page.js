@@ -54,7 +54,7 @@ export default function Home() {
   ];
 
   // Images for the scrolling background
-  const bgImages = ['/1.jpeg', '/2.jpeg', '/3.jpeg', '/4.jpeg', '/5.jpeg', '/6.jpeg'];
+  const bgImages = ['/1.jpeg', '/2.jpeg', '/3.jpeg', '/4.jpeg', '/5.jpeg', '/6.jpeg', '/7.jpeg', '/8.jpeg'];
 
   return (
     <div className="w-full">
