@@ -8,10 +8,10 @@ export default function Footer() {
         {/* About */}
         <div>
           <div className="text-3xl font-extrabold text-blue-900 flex items-center mb-4">
-            <span className="text-red-600 mr-1">+</span>Careerview
+            <span className="text-red-600 mr-1">+</span>{process.env.NEXT_PUBLIC_BRAND_NAME}
           </div>
           <p className="text-gray-600 text-sm leading-relaxed mb-4">
-            Careerview, helping students since 2008, specializes in MBBS, MD, and other medical course admissions in India and abroad. Count on us for hassle-free admissions to the best medical colleges.
+            {process.env.NEXT_PUBLIC_BRAND_NAME}, helping students since 2008, specializes in MBBS, MD, and other medical course admissions in India and abroad. Count on us for hassle-free admissions to the best medical colleges.
           </p>
           <Link href="#" className="inline-block border border-blue-600 text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition">
             Contact With Us ➔
@@ -45,8 +45,8 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h4 className="font-bold text-gray-900 mb-4">Get Contact</h4>
-          <p className="text-sm text-gray-600 mb-2">Phone: 62645-53973, 83196-94985</p>
-          <p className="text-sm text-gray-600 mb-4">E-mail: info@careerview.com</p>
+          <p className="text-sm text-gray-600 mb-2">Phone: {process.env.NEXT_PUBLIC_PHONE}, 83196-94985</p>
+          <p className="text-sm text-gray-600 mb-4">E-mail: info@{process.env.NEXT_PUBLIC_BRAND_NAME}.com</p>
           
           <div className="bg-gray-100 p-4 rounded-lg inline-block cursor-pointer hover:bg-gray-200 transition">
              <p className="font-bold text-red-600 text-sm mb-1 flex items-center gap-1">Subscribe us on YouTube</p>
@@ -57,7 +57,7 @@ export default function Footer() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t text-center md:text-left text-sm text-gray-500 flex flex-col md:flex-row justify-between">
-        <p>© 2026 Careerview. All Rights Reserved.</p>
+        <p>© {process.env.NEXT_PUBLIC_YEAR} {process.env.NEXT_PUBLIC_BRAND_NAME}. All Rights Reserved.</p>
         <div className="space-x-4 mt-4 md:mt-0">
           <Link href="#">Refund Policy</Link>
           <Link href="#">Privacy Policy</Link>

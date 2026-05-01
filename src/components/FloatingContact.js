@@ -4,7 +4,7 @@ export default function FloatingContact() {
   return (
     <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
       <a 
-        href="tel:6264553973" 
+        href="tel:{process.env.NEXT_PUBLIC_PHONE}" 
         className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition transform hover:scale-110 flex items-center justify-center"
       >
         <FaPhoneAlt size={24} />

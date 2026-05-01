@@ -1,15 +1,15 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Top MBBS Colleges in Mumbai 2026 | Fees & Admissions | Careerview',
-  description: 'Discover the best government and private MBBS colleges in Mumbai for 2026. Get expert admission guidance, fee structures, and placement details with Careerview.',
+  title: 'Top MBBS Colleges in Mumbai {process.env.NEXT_PUBLIC_YEAR} | Fees & Admissions | {process.env.NEXT_PUBLIC_BRAND_NAME}',
+  description: 'Discover the best government and private MBBS colleges in Mumbai for {process.env.NEXT_PUBLIC_YEAR}. Get expert admission guidance, fee structures, and placement details with {process.env.NEXT_PUBLIC_BRAND_NAME}.',
 };
 
-// --- Structured Data for Careerview ---
+// --- Structured Data for {process.env.NEXT_PUBLIC_BRAND_NAME} ---
 
 const highlightsData = [
   { label: "Total MBBS Colleges", value: "15+ Institutions" },
-  { label: "Accepted Entrance Exam", value: "NEET UG 2026" },
+  { label: "Accepted Entrance Exam", value: "NEET UG {process.env.NEXT_PUBLIC_YEAR}" },
   { label: "Top Colleges", value: "Dr. D. Y. Patil Vidyapeeth, Grant Medical College, KJ Somaiya, MGM Institute" },
   { label: "Overall Fee Range", value: "₹6 Lakhs - ₹1.5 Crores (Total Course)" },
   { label: "Approval & Affiliation", value: "NMC Approved, MUHS / Mumbai University Affiliated" }
@@ -40,7 +40,7 @@ const placementData = [
 const faqs = [
   {
     question: "What is the minimum eligibility to apply for MBBS in Mumbai?",
-    answer: "Aspirants must be at least 17 years old by December 31, 2026. Academically, you need to clear your Class 12 (10+2) board exams with a minimum of 50% aggregate in Physics, Chemistry, and Biology (PCB), and successfully qualify the NEET UG entrance exam."
+    answer: "Aspirants must be at least 17 years old by December 31, {process.env.NEXT_PUBLIC_YEAR}. Academically, you need to clear your Class 12 (10+2) board exams with a minimum of 50% aggregate in Physics, Chemistry, and Biology (PCB), and successfully qualify the NEET UG entrance exam."
   },
   {
     question: "Is NEET mandatory for private medical colleges in Mumbai?",
@@ -51,8 +51,8 @@ const faqs = [
     answer: "Government and municipal colleges (like Lokmanya Tilak or KEM) are heavily subsidized by the state, keeping fees around ₹6-8 Lakhs for the entire course. Private and Deemed universities (like DY Patil or MGM) are self-funded, offering premium infrastructure and clinical facilities, which brings their fee range from ₹30 Lakhs to over ₹1 Crore."
   },
   {
-    question: "How can Careerview assist me in securing a medical seat in Mumbai?",
-    answer: "The admission process can be highly competitive. Careerview provides personalized counseling based on your NEET score, budget constraints, and preferences. We help you navigate the complex counseling rounds, choice filling, and documentation to maximize your chances of getting the best possible college."
+    question: "How can {process.env.NEXT_PUBLIC_BRAND_NAME} assist me in securing a medical seat in Mumbai?",
+    answer: "The admission process can be highly competitive. {process.env.NEXT_PUBLIC_BRAND_NAME} provides personalized counseling based on your NEET score, budget constraints, and preferences. We help you navigate the complex counseling rounds, choice filling, and documentation to maximize your chances of getting the best possible college."
   }
 ];
 
@@ -64,13 +64,13 @@ export default function MumbaiMbbsCollegesPage() {
       <section className="bg-white border-b border-gray-200 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-blue-100 text-blue-800 font-bold px-4 py-1.5 rounded-full text-xs tracking-wide uppercase mb-4 shadow-sm">
-            Admissions 2026
+            Admissions {process.env.NEXT_PUBLIC_YEAR}
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
             Best MBBS Colleges in Mumbai
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            The Mumbai Metropolitan Region (MMR) is a premier hub for medical education, offering an excellent blend of top-tier government, municipal, and private institutions. Discover your path to becoming a doctor with Careerview.
+            The Mumbai Metropolitan Region (MMR) is a premier hub for medical education, offering an excellent blend of top-tier government, municipal, and private institutions. Discover your path to becoming a doctor with {process.env.NEXT_PUBLIC_BRAND_NAME}.
           </p>
         </div>
       </section>
@@ -200,11 +200,11 @@ export default function MumbaiMbbsCollegesPage() {
               </div>
               <h3 className="font-extrabold text-2xl mb-2">Need Expert Admission Help?</h3>
               <p className="text-blue-100 text-sm mb-8 leading-relaxed">
-                Don't navigate the competitive NEET counseling alone. Talk to Careerview experts today for a free profile evaluation and secure your seat.
+                Don't navigate the competitive NEET counseling alone. Talk to {process.env.NEXT_PUBLIC_BRAND_NAME} experts today for a free profile evaluation and secure your seat.
               </p>
               
-              <a href="tel:+916264553973" className="flex items-center justify-center bg-white text-blue-700 font-bold py-3.5 px-4 rounded-xl shadow-md hover:bg-gray-50 transition transform hover:-translate-y-0.5 mb-3">
-                Call: +91 62645-53973
+              <a href="tel:{process.env.NEXT_PUBLIC_PHONE}" className="flex items-center justify-center bg-white text-blue-700 font-bold py-3.5 px-4 rounded-xl shadow-md hover:bg-gray-50 transition transform hover:-translate-y-0.5 mb-3">
+                Call: {process.env.NEXT_PUBLIC_PHONE}
               </a>
               <a href="https://wa.me/916264553973" target="_blank" rel="noreferrer" className="flex items-center justify-center bg-green-500 text-white font-bold py-3.5 px-4 rounded-xl shadow-md hover:bg-green-400 transition transform hover:-translate-y-0.5">
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.098.824z"/></svg>

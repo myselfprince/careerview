@@ -48,12 +48,12 @@ const livingCosts = [
 ];
 
 const admissionSteps = [
-  { title: "Initial Consultation", desc: "Connect with Careerview experts to evaluate your profile, NEET score, and budget preferences." },
+  { title: "Initial Consultation", desc: "Connect with {process.env.NEXT_PUBLIC_BRAND_NAME} experts to evaluate your profile, NEET score, and budget preferences." },
   { title: "Documentation", desc: "Submit 10th/12th mark sheets, NEET scorecard, passport copies, and birth certificates for verification." },
   { title: "Application Submission", desc: "We help you fill out and submit official applications to your chosen Nepalese medical universities." },
   { title: "Admission Letter", desc: "Receive your official acceptance/invitation letter from the university." },
   { title: "Visa & Travel Processing", desc: "As an Indian student, visa requirements are minimal, but we assist with all cross-border documentation and travel arrangements." },
-  { title: "Arrival & Onboarding", desc: "Careerview ensures a smooth transition with airport pickups and campus onboarding in Nepal." },
+  { title: "Arrival & Onboarding", desc: "{process.env.NEXT_PUBLIC_BRAND_NAME} ensures a smooth transition with airport pickups and campus onboarding in Nepal." },
 ];
 
 const faqs = [
@@ -74,7 +74,7 @@ const faqs = [
     answer: "Nepal is highly affordable. On average, a student spends between ₹10,000 to ₹15,000 per month on accommodation, food, and daily travel, making it one of the most budget-friendly destinations for medical studies."
   },
   {
-    question: "What are the academic requirements to apply via Careerview?",
+    question: "What are the academic requirements to apply via {process.env.NEXT_PUBLIC_BRAND_NAME}?",
     answer: "You must be at least 17 years old, have scored a minimum of 50-60% aggregate in Physics, Chemistry, and Biology in your 12th boards, and possess a valid, qualifying NEET-UG scorecard."
   }
 ];
@@ -83,15 +83,15 @@ export default function StudyMbbsInNepalPage() {
   return (
     <div className="bg-slate-50 min-h-screen font-sans text-slate-800">
       <Head>
-        <title>Study MBBS in Nepal 2026-27 | Fees, Colleges & Admission | Careerview</title>
-        <meta name="description" content="Pursue your medical dreams with an MBBS in Nepal. Get comprehensive details on fees, NMC-approved colleges, syllabus, and admission process with Careerview." />
+        <title>Study MBBS in Nepal {process.env.NEXT_PUBLIC_YEAR}-27 | Fees, Colleges & Admission | {process.env.NEXT_PUBLIC_BRAND_NAME}</title>
+        <meta name="description" content="Pursue your medical dreams with an MBBS in Nepal. Get comprehensive details on fees, NMC-approved colleges, syllabus, and admission process with {process.env.NEXT_PUBLIC_BRAND_NAME}." />
       </Head>
 
       {/* Hero Section */}
       <section className="bg-white border-b border-slate-200 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-emerald-100 text-emerald-800 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase mb-4">
-            Admissions Open 2026-27
+            Admissions Open {process.env.NEXT_PUBLIC_YEAR}-27
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
             Study MBBS in Nepal
@@ -100,8 +100,8 @@ export default function StudyMbbsInNepalPage() {
             Experience world-class medical education right next door. Nepal offers Indian students NMC-approved curricula, English-medium instruction, and unparalleled clinical exposure at highly affordable tuition fees.
           </p>
           <div className="flex justify-center gap-4">
-            <a href="tel:+916264553973" className="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition">
-              Call Experts: +91 62645-53973
+            <a href="tel:{process.env.NEXT_PUBLIC_PHONE}" className="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition">
+              Call Experts: {process.env.NEXT_PUBLIC_PHONE}
             </a>
           </div>
         </div>
@@ -181,7 +181,7 @@ export default function StudyMbbsInNepalPage() {
 
           {/* Admission Process */}
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Careerview Admission Process</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">{process.env.NEXT_PUBLIC_BRAND_NAME} Admission Process</h2>
             <div className="space-y-4">
               {admissionSteps.map((step, idx) => (
                 <div key={idx} className="flex bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
@@ -225,11 +225,11 @@ export default function StudyMbbsInNepalPage() {
             <div className="bg-blue-900 rounded-2xl shadow-xl text-white p-8 text-center">
               <h3 className="font-extrabold text-2xl mb-3">Begin Your Medical Journey Today!</h3>
               <p className="text-blue-100 text-sm mb-8 leading-relaxed">
-                Connect with Careerview's expert counselors for a free profile assessment. Let us handle your admission to top universities in Nepal.
+                Connect with {process.env.NEXT_PUBLIC_BRAND_NAME}'s expert counselors for a free profile assessment. Let us handle your admission to top universities in Nepal.
               </p>
               
-              <a href="tel:+916264553973" className="flex items-center justify-center bg-white text-blue-900 font-bold py-3.5 px-4 rounded-xl shadow-md hover:bg-slate-50 transition mb-4">
-                Call: +91 62645-53973
+              <a href="tel:{process.env.NEXT_PUBLIC_PHONE}" className="flex items-center justify-center bg-white text-blue-900 font-bold py-3.5 px-4 rounded-xl shadow-md hover:bg-slate-50 transition mb-4">
+                Call: {process.env.NEXT_PUBLIC_PHONE}
               </a>
               <a href="https://wa.me/916264553973" target="_blank" rel="noreferrer" className="flex items-center justify-center bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-xl shadow-md hover:bg-emerald-400 transition">
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.098.824z"/></svg>

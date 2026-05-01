@@ -33,9 +33,9 @@ export default function TopMBBSIndia() {
 
         {/* Header */}
         <div className="bg-white p-8 rounded-t-xl shadow-sm border-b-4 border-blue-600 text-center">
-          <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Rankings 2026</span>
+          <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Rankings {process.env.NEXT_PUBLIC_YEAR}</span>
           <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4">
-            Indian Medical Colleges And Universities Rankings 2026
+            Indian Medical Colleges And Universities Rankings {process.env.NEXT_PUBLIC_YEAR}
           </h1>
           <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
             Explore the top-ranked medical institutions across India based on comprehensive educational standards, infrastructure, and clinical exposure.

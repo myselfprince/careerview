@@ -56,14 +56,14 @@ export default function TopGovtCollegesPage() {
   return (
     <div className="bg-gray-50 min-h-screen font-sans text-gray-800">
       <Head>
-        <title>Top Government MBBS Colleges in India 2026 | Careerview</title>
-        <meta name="description" content="Explore top NIRF ranked government medical colleges in India, NEET cutoffs, fee structures, and MBBS admission eligibility for 2026 with Careerview." />
+        <title>Top Government MBBS Colleges in India {process.env.NEXT_PUBLIC_YEAR} | {process.env.NEXT_PUBLIC_BRAND_NAME}</title>
+        <meta name="description" content="Explore top NIRF ranked government medical colleges in India, NEET cutoffs, fee structures, and MBBS admission eligibility for {process.env.NEXT_PUBLIC_YEAR} with {process.env.NEXT_PUBLIC_BRAND_NAME}." />
       </Head>
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 py-12 text-center">
         <div className="inline-block bg-blue-100 text-blue-700 font-semibold px-4 py-1 rounded-full text-sm mb-6">
-          RANKINGS 2026
+          RANKINGS {process.env.NEXT_PUBLIC_YEAR}
         </div>
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
           Top MBBS Government Colleges
@@ -80,7 +80,7 @@ export default function TopGovtCollegesPage() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 mb-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Why Pursue MBBS in India?</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            Dreaming of a successful medical career? <strong>Careerview</strong> is your dedicated partner in navigating the complex MBBS admission landscape in India. We provide transparent, merit-based guidance to help you secure a seat in top-tier medical colleges based entirely on your NEET-UG performance—without hidden donation fees.
+            Dreaming of a successful medical career? <strong>{process.env.NEXT_PUBLIC_BRAND_NAME}</strong> is your dedicated partner in navigating the complex MBBS admission landscape in India. We provide transparent, merit-based guidance to help you secure a seat in top-tier medical colleges based entirely on your NEET-UG performance—without hidden donation fees.
           </p>
           <p className="text-gray-600 leading-relaxed">
             Securing admission is highly competitive due to the ratio of applicants to available seats. In the most recent academic cycle, over 2.3 million candidates appeared for the NEET UG exam competing for approximately <strong>117,825 MBBS seats</strong> nationwide. The primary hurdle for students remains balancing the pursuit of quality education against high private tuition fees and limited government quotas.
@@ -162,14 +162,14 @@ export default function TopGovtCollegesPage() {
         <div className="bg-blue-50 border border-blue-100 rounded-xl p-8 text-center max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-blue-900 mb-4">Want a Free Admission Consultation?</h2>
           <p className="text-blue-800 mb-6">
-            For NEET 2026 Registration, application forms, exam dates, syllabus updates, and expert admission guidance, connect with the <strong>Careerview Admission Experts</strong>. Let us help you secure your medical future.
+            For NEET {process.env.NEXT_PUBLIC_YEAR} Registration, application forms, exam dates, syllabus updates, and expert admission guidance, connect with the <strong>{process.env.NEXT_PUBLIC_BRAND_NAME} Admission Experts</strong>. Let us help you secure your medical future.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="tel:+916264553973" className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
-              Call: +91 62645-53973
+            <a href="tel:{process.env.NEXT_PUBLIC_PHONE}" className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
+              Call: {process.env.NEXT_PUBLIC_PHONE}
             </a>
-            <a href="tel:+916264553973" className="bg-green-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
-              WhatsApp: +91 62645-53973
+            <a href="tel:{process.env.NEXT_PUBLIC_PHONE}" className="bg-green-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+              WhatsApp: {process.env.NEXT_PUBLIC_PHONE}
             </a>
           </div>
         </div>

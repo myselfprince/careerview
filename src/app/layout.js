@@ -4,7 +4,7 @@ import FloatingContact from '@/components/FloatingContact';
 import Footer from '@/components/Footer'; // Import the new footer
 
 export const metadata = {
-  title: 'Careerview - Medical College Admissions',
+  title: `${process.env.NEXT_PUBLIC_BRAND_NAME} - Medical College Admissions`,
   description: 'Find top medical colleges and get admission guidance.',
 };
 

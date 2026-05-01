@@ -24,44 +24,54 @@ export default function Home() {
     { title: "Top MBBS Colleges in Uttar Pradesh", href: "/collections/top-mbbs-colleges-in-uttar-pradesh" },
     { title: "Top MBBS Colleges in Mumbai", href: "/collections/top-mbbs-colleges-in-mumbai" },
     // { title: "Top MBBS Colleges in Bangladesh", href: "/collections/top-mbbs-colleges-in-bangladesh" },
-    // { title: "Top MBBS Colleges in Russia", href: "/collections/top-mbbs-colleges-in-russia" },
-    // { title: "Top MBBS Colleges in Germany", href: "/collections/top-mbbs-colleges-in-germany" },
-    { title: "Top MBBS Colleges in Nepal", href: "/collections/top-mbbs-colleges-in-nepal" }
+    { title: "Top MBBS Colleges in Russia", href: "/collections/top-mbbs-colleges-in-russia" },
+    { title: "Top MBBS Colleges in Germany", href: "/collections/top-mbbs-colleges-in-germany" },
+    { title: "Top MBBS Colleges in Nepal", href: "/collections/top-mbbs-colleges-in-nepal" },
+    { title: "Top MBBS Colleges in Uzbekistan", href: "/collections/top-mbbs-colleges-in-uzbekistan" }
   ];
 
   return (
     <div className="w-full">
       {/* 1. Hero Section */}
-      <section className="bg-blue-900 text-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-8 items-center relative z-10">
-          <div>
+      <section 
+        className="relative text-white overflow-hidden bg-cover bg-center bg-no-repeat min-h-[500px] flex items-center"
+        style={{ backgroundImage: "url('/homepage_clg.png')" }}
+      >
+        {/* Dark overlay to ensure text visibility */}
+        <div className="absolute inset-0 bg-black/60 sm:bg-gradient-to-r sm:from-black/80 sm:via-black/60 sm:to-black/30"></div>
+
+        <div className="max-w-7xl mx-auto px-4 py-16 md:py-24 relative z-10 w-full">
+          
+          {/* Text Content */}
+          <div className="max-w-2xl">
             <h2 className="text-5xl md:text-7xl font-extrabold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
               STUDY <br/><span className="text-white">MBBS</span>
             </h2>
-            <div className="bg-blue-800 p-4 rounded-lg inline-block mb-8 border border-blue-700">
-              <h3 className="text-2xl font-bold text-yellow-400">NEET UG COUNSELING 2026</h3>
+            <div className="bg-blue-800/90 backdrop-blur-sm p-4 rounded-lg inline-block mb-8 border border-blue-700 shadow-lg">
+              <h3 className="text-2xl font-bold text-yellow-400">NEET UG COUNSELING {process.env.NEXT_PUBLIC_YEAR}</h3>
               <p className="text-lg">100% Guaranteed admission<br/>At NEET any qualified Score</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex items-start gap-3">
-                <FaCheckCircle className="text-yellow-400 text-2xl mt-1" />
-                <p className="font-semibold">No Donation/ <br/><span className="font-normal text-sm">No Hidden charges</span></p>
+                <FaCheckCircle className="text-yellow-400 text-2xl mt-1 drop-shadow-md" />
+                <p className="font-semibold drop-shadow-md">No Donation/ <br/><span className="font-normal text-sm">No Hidden charges</span></p>
               </div>
               <div className="flex items-start gap-3">
-                <FaClipboardList className="text-yellow-400 text-2xl mt-1" />
-                <p className="font-semibold">State wise <br/><span className="font-normal text-sm">counseling updates</span></p>
+                <FaClipboardList className="text-yellow-400 text-2xl mt-1 drop-shadow-md" />
+                <p className="font-semibold drop-shadow-md">State wise <br/><span className="font-normal text-sm">counseling updates</span></p>
               </div>
               <div className="flex items-start gap-3">
-                <FaFileAlt className="text-yellow-400 text-2xl mt-1" />
-                <p className="font-semibold">Reporting & Documentation <br/><span className="font-normal text-sm">support</span></p>
+                <FaFileAlt className="text-yellow-400 text-2xl mt-1 drop-shadow-md" />
+                <p className="font-semibold drop-shadow-md">Reporting & Documentation <br/><span className="font-normal text-sm">support</span></p>
               </div>
               <div className="flex items-start gap-3">
-                <FaUniversity className="text-yellow-400 text-2xl mt-1" />
-                <p className="font-semibold">Negotiated/ <br/><span className="font-normal text-sm">Low fees Colleges</span></p>
+                <FaUniversity className="text-yellow-400 text-2xl mt-1 drop-shadow-md" />
+                <p className="font-semibold drop-shadow-md">Negotiated/ <br/><span className="font-normal text-sm">Low fees Colleges</span></p>
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -110,7 +120,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col md:flex-row items-center gap-6">
               <div className="text-center md:text-left">
-                <p className="flex items-center gap-2 text-xl font-bold"><FaPhoneAlt/> +91-62645-53973</p>
+                <p className="flex items-center gap-2 text-xl font-bold"><FaPhoneAlt/> {process.env.NEXT_PUBLIC_PHONE}</p>
                 <p className="flex items-center gap-2 text-xl font-bold"><FaWhatsapp/> +91-83196-94985</p>
               </div>
               <button className="bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition transform hover:-translate-y-1">
@@ -151,7 +161,7 @@ export default function Home() {
       {/* 6. Reliable Services */}
       <section className="py-16 bg-gray-50 border-t">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 mb-12">Careerview Reliable Services</h2>
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-12">{process.env.NEXT_PUBLIC_BRAND_NAME} Reliable Services</h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             <div className="flex flex-col items-center">
               <FaGlobeAmericas className="text-5xl text-blue-600 mb-4" />

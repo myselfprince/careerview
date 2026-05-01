@@ -60,8 +60,8 @@ const faqs = [
     answer: "Absolutely. The institutions listed above are highly ranked and strictly recognized by the Dental Council of India (DCI), which is the apex regulatory body for dental education in the country."
   },
   {
-    question: "How can Careerview help me secure a BDS seat?",
-    answer: "Careerview provides end-to-end admission counseling. We analyze your NEET score, budget, and location preferences to guide you through the choice-filling and counseling process, ensuring you secure the best possible DCI-approved dental college."
+    question: "How can {process.env.NEXT_PUBLIC_BRAND_NAME} help me secure a BDS seat?",
+    answer: "{process.env.NEXT_PUBLIC_BRAND_NAME} provides end-to-end admission counseling. We analyze your NEET score, budget, and location preferences to guide you through the choice-filling and counseling process, ensuring you secure the best possible DCI-approved dental college."
   }
 ];
 
@@ -69,8 +69,8 @@ export default function TopBdsCollegesPage() {
   return (
     <div className="bg-gray-50 min-h-screen font-sans text-gray-800">
       <Head>
-        <title>Top BDS Colleges in India | Careerview</title>
-        <meta name="description" content="Discover the top-ranked Dental (BDS) colleges in India recognized by the DCI. Get expert admission counseling and guidance with Careerview." />
+        <title>Top BDS Colleges in India | {process.env.NEXT_PUBLIC_BRAND_NAME}</title>
+        <meta name="description" content="Discover the top-ranked Dental (BDS) colleges in India recognized by the DCI. Get expert admission counseling and guidance with {process.env.NEXT_PUBLIC_BRAND_NAME}." />
       </Head>
 
       {/* Hero Section */}
@@ -90,7 +90,7 @@ export default function TopBdsCollegesPage() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 mb-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Start Your Journey in Dentistry</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            A career in dental surgery offers immense professional growth and the opportunity to make a tangible difference in healthcare. Choosing the right institution is the first critical step. <strong>Careerview</strong> brings you a meticulously curated list of the top dental colleges in India, evaluated on academic excellence, clinical exposure, infrastructure, and placement records.
+            A career in dental surgery offers immense professional growth and the opportunity to make a tangible difference in healthcare. Choosing the right institution is the first critical step. <strong>{process.env.NEXT_PUBLIC_BRAND_NAME}</strong> brings you a meticulously curated list of the top dental colleges in India, evaluated on academic excellence, clinical exposure, infrastructure, and placement records.
           </p>
           <p className="text-gray-600 leading-relaxed">
             Navigating the NEET-UG counseling process for a BDS seat can be overwhelming. Our expert counselors are dedicated to helping you find the perfect college that aligns with your competitive scores and career aspirations. Explore the rankings below to find your ideal academic destination.
@@ -145,12 +145,12 @@ export default function TopBdsCollegesPage() {
         <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-2xl p-10 text-center max-w-4xl mx-auto shadow-sm">
           <h2 className="text-3xl font-extrabold text-blue-900 mb-4">Need Help with BDS Admissions?</h2>
           <p className="text-blue-800 mb-8 text-lg">
-            Don't leave your medical career to chance. Talk to our expert counselors at <strong>Careerview</strong> today for personalized guidance, fee structure details, and admission support.
+            Don't leave your medical career to chance. Talk to our expert counselors at <strong>{process.env.NEXT_PUBLIC_BRAND_NAME}</strong> today for personalized guidance, fee structure details, and admission support.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
-            <a href="tel:+916264553973" className="flex items-center justify-center bg-blue-600 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 w-full sm:w-auto text-lg">
+            <a href="tel:{process.env.NEXT_PUBLIC_PHONE}" className="flex items-center justify-center bg-blue-600 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 w-full sm:w-auto text-lg">
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              Call Us: +91 62645-53973
+              Call Us: {process.env.NEXT_PUBLIC_PHONE}
             </a>
           </div>
         </div>

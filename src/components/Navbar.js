@@ -1,21 +1,21 @@
 import Link from 'next/link';
-import { FaPhoneAlt, FaWhatsapp, FaYoutube, FaHeadset } from 'react-icons/fa';
+import { FaPhoneAlt, FaWhatsapp, FaYoutube, FaHeadset, FaInstagram } from 'react-icons/fa';
 
 export default function Navbar() {
   return (
     <header className="bg-white shadow-sm w-full z-40 relative">
       {/* Top Bar - Contact & Info */}
-      <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center border-b">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center border-b gap-4">
         {/* Logo Area */}
-        <Link href="/" className="flex items-center gap-2 mb-4 md:mb-0">
+        <Link href="/" className="flex items-center gap-2 mb-2 md:mb-0">
           <div className="text-3xl font-extrabold text-blue-900 flex items-center">
-            <span className="text-red-600 mr-1">+</span>Careerview
+            <span className="text-red-600 mr-1">+</span>{process.env.NEXT_PUBLIC_BRAND_NAME}
           </div>
           <span className="text-xs text-gray-500 font-semibold uppercase tracking-widest mt-1">Education Pvt. Ltd.</span>
         </Link>
 
         {/* Contact Info */}
-        <div className="flex flex-wrap justify-center md:justify-end gap-6 items-center text-sm">
+        <div className="flex flex-wrap justify-center md:justify-end gap-4 lg:gap-6 items-center text-sm">
           <div className="flex items-center gap-2 text-gray-700 bg-red-50 p-2 rounded-full px-4">
             <FaHeadset className="text-red-500 text-xl" />
             <div className="font-semibold leading-tight">
@@ -23,11 +23,11 @@ export default function Navbar() {
             </div>
           </div>
           
-          <a href="tel:6264553973" className="flex items-center gap-2 group">
+          <a href={`tel:${process.env.NEXT_PUBLIC_PHONE}`} className="flex items-center gap-2 group">
             <FaPhoneAlt className="text-blue-600 text-xl group-hover:animate-pulse" />
             <div className="leading-tight">
               <span className="text-gray-500 text-xs">Call us Now</span><br/>
-              <span className="text-blue-900 font-bold">+91 62645-53973</span>
+              <span className="text-blue-900 font-bold">{process.env.NEXT_PUBLIC_PHONE}</span>
             </div>
           </a>
 
@@ -35,13 +35,20 @@ export default function Navbar() {
             <FaWhatsapp className="text-green-600 text-2xl group-hover:scale-110 transition-transform" />
             <div className="leading-tight">
               <span className="text-gray-500 text-xs">Whatsapp Us</span><br/>
-              <span className="text-green-700 font-bold">+91 83196-94985</span>
+              <span className="text-green-700 font-bold">{process.env.NEXT_PUBLIC_PHONE2}</span>
             </div>
           </a>
 
-          <a href="#" className="flex items-center gap-2 bg-red-50 text-red-600 font-bold py-2 px-4 rounded-full border border-red-200 hover:bg-red-100 transition">
-            <FaYoutube className="text-xl" /> Watch YouTube
-          </a>
+          {/* Social Media Buttons Group */}
+          <div className="flex items-center gap-3">
+            <a href={process.env.NEXT_PUBLIC_YT} className="flex items-center gap-2 bg-red-50 text-red-600 font-bold py-2 px-4 rounded-full border border-red-200 hover:bg-red-100 transition" target="_blank" rel="noopener noreferrer">
+              <FaYoutube className="text-xl" /> <span className="hidden sm:inline">YouTube</span>
+            </a>
+
+            <a href={process.env.NEXT_PUBLIC_IG} className="flex items-center gap-2 bg-pink-50 text-pink-600 font-bold py-2 px-4 rounded-full border border-pink-200 hover:bg-pink-100 transition" target="_blank" rel="noopener noreferrer">
+              <FaInstagram className="text-xl" /> <span className="hidden sm:inline">Instagram</span>
+            </a>
+          </div>
         </div>
       </div>
 

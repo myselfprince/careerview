@@ -19,8 +19,8 @@ export default function TopPrivateMBBS() {
     { q: "Can I complete my medical internship in India after graduating from a foreign university?", a: "Yes, once you complete your MBBS abroad and clear the FMGE/NEXT screening test conducted by the NMC, you are eligible to undergo your mandatory internship in India." },
     { q: "How many attempts are allowed for the NMC/FMGE Screening Test?", a: "Currently, there is no limit on the number of attempts for the FMGE/NEXT exam. You can appear for it as many times as needed to clear it." },
     { q: "Can I practice or work in an Indian government hospital after studying abroad?", a: "Absolutely. After passing the screening test and registering with the Medical Council, your degree is treated identically to an Indian MBBS degree. You can apply for government roles and practice anywhere in India." },
-    { q: "What kind of medical facilities are available for students on international campuses?", a: "Most recognized medical universities have their own dedicated student clinics on campus. Additionally, Careerview ensures all students have valid medical insurance, allowing them to access state-run hospitals in their host city if needed." },
-    { q: "How can I secure an education loan for my MBBS studies?", a: "Education loans can be availed from nationalized and private banks. Careerview provides you with the necessary admission letters, fee structures, and documentation support to seamlessly process your education loan." },
+    { q: "What kind of medical facilities are available for students on international campuses?", a: "Most recognized medical universities have their own dedicated student clinics on campus. Additionally, {process.env.NEXT_PUBLIC_BRAND_NAME} ensures all students have valid medical insurance, allowing them to access state-run hospitals in their host city if needed." },
+    { q: "How can I secure an education loan for my MBBS studies?", a: "Education loans can be availed from nationalized and private banks. {process.env.NEXT_PUBLIC_BRAND_NAME} provides you with the necessary admission letters, fee structures, and documentation support to seamlessly process your education loan." },
   ];
 
   return (
@@ -29,9 +29,9 @@ export default function TopPrivateMBBS() {
         
         {/* Intro Section */}
         <section className="bg-white p-8 rounded-xl shadow-sm border-t-4 border-red-600">
-          <h1 className="text-3xl md:text-5xl font-extrabold text-blue-900 mb-6">MBBS Admission in India 2026</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-blue-900 mb-6">MBBS Admission in India {process.env.NEXT_PUBLIC_YEAR}</h1>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Are you planning to pursue your medical career in India? Careerview is here to guide you through the complexities of MBBS admissions, ensuring you find the right college based on your NEET score without hidden donation fees.
+            Are you planning to pursue your medical career in India? {process.env.NEXT_PUBLIC_BRAND_NAME} is here to guide you through the complexities of MBBS admissions, ensuring you find the right college based on your NEET score without hidden donation fees.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
             Securing an MBBS seat in India requires navigating intense competition. Currently, India offers approximately <strong>117,825 MBBS seats</strong>, divided almost equally between Government/Semi-Government institutions (59,860 seats) and Private or Deemed universities (57,965 seats). The standard MBBS curriculum spans 5.5 years, which includes a 1-year mandatory internship. 
@@ -57,7 +57,7 @@ export default function TopPrivateMBBS() {
                 <tr><td className="p-3 border font-medium">UR/EWS</td><td className="p-3 border">50th</td><td className="p-3 border">720 - 164</td></tr>
                 <tr><td className="p-3 border font-medium">OBC / SC / ST</td><td className="p-3 border">40th</td><td className="p-3 border">163 - 129</td></tr>
                 <tr className="bg-gray-50"><td colSpan="3" className="p-3 border text-sm text-gray-500">
-                  For NEET 2026 Registration, dates, and syllabus counseling, contact Careerview Experts at <strong>+91 62645-53973</strong>.
+                  For NEET {process.env.NEXT_PUBLIC_YEAR} Registration, dates, and syllabus counseling, contact {process.env.NEXT_PUBLIC_BRAND_NAME} Experts at <strong>{process.env.NEXT_PUBLIC_PHONE}</strong>.
                 </td></tr>
               </tbody>
             </table>
@@ -95,7 +95,7 @@ export default function TopPrivateMBBS() {
 
         {/* FAQs Accordion */}
         <section className="bg-white p-8 rounded-xl shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Careerview Admissions FAQ</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">{process.env.NEXT_PUBLIC_BRAND_NAME} Admissions FAQ</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div key={index} className="border border-gray-200 rounded-lg">
@@ -122,8 +122,8 @@ export default function TopPrivateMBBS() {
             <h3 className="text-2xl font-bold">Want a free consultation?</h3>
             <p className="text-blue-100 mt-1">Talk to our experts for admission into top medical universities.</p>
           </div>
-          <a href="tel:6264553973" className="bg-white text-blue-700 font-bold py-3 px-6 rounded-full flex items-center gap-2 hover:bg-gray-100 transition">
-            <FaPhoneAlt /> Call +91 62645-53973
+          <a href="tel:{process.env.NEXT_PUBLIC_PHONE}" className="bg-white text-blue-700 font-bold py-3 px-6 rounded-full flex items-center gap-2 hover:bg-gray-100 transition">
+            <FaPhoneAlt /> Call {process.env.NEXT_PUBLIC_PHONE}
           </a>
         </div>
 
