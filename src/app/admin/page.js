@@ -33,7 +33,7 @@ export default function AdminDashboard() {
       <h1 className="text-3xl font-bold text-gray-800 border-b pb-4 text-white">Admin Dashboard</h1>
       
       {/* Add College Form */}
-      <section className="bg-white p-6 rounded shadow text-black">
+      {/* <section className="bg-white p-6 rounded shadow text-black">
         <h2 className="text-xl font-bold mb-4">Add New College</h2>
         <form onSubmit={handleAddCollege} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input type="text" placeholder="College Name" required className="border p-2 rounded" value={newCollege.name} onChange={(e) => setNewCollege({...newCollege, name: e.target.value})} />
@@ -43,7 +43,7 @@ export default function AdminDashboard() {
           <input type="text" placeholder="Fee Structure (e.g., 10K / Year)" className="border p-2 rounded" value={newCollege.feeStructure} onChange={(e) => setNewCollege({...newCollege, feeStructure: e.target.value})} />
           <button type="submit" className="bg-green-600 text-white p-2 rounded md:col-span-2 hover:bg-green-700">Add College to Database</button>
         </form>
-      </section>
+      </section> */}
 
       {/* View Leads */}
       <section className="bg-white p-6 rounded shadow">
