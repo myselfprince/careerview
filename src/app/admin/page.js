@@ -30,10 +30,10 @@ export default function AdminDashboard() {
 
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-10">
-      <h1 className="text-3xl font-bold text-gray-800 border-b pb-4">Admin Dashboard</h1>
+      <h1 className="text-3xl font-bold text-gray-800 border-b pb-4 text-white">Admin Dashboard</h1>
       
       {/* Add College Form */}
-      <section className="bg-white p-6 rounded shadow">
+      <section className="bg-white p-6 rounded shadow text-black">
         <h2 className="text-xl font-bold mb-4">Add New College</h2>
         <form onSubmit={handleAddCollege} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input type="text" placeholder="College Name" required className="border p-2 rounded" value={newCollege.name} onChange={(e) => setNewCollege({...newCollege, name: e.target.value})} />
@@ -47,9 +47,9 @@ export default function AdminDashboard() {
 
       {/* View Leads */}
       <section className="bg-white p-6 rounded shadow">
-        <h2 className="text-xl font-bold mb-4">Student Inquiries (Leads)</h2>
+        <h2 className="text-xl font-bold mb-4 text-black">Student Inquiries (Leads)</h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+          <table className="w-full text-left border-collapse text-black">
             <thead>
               <tr className="bg-gray-200">
                 <th className="p-3 border-b">Name</th>

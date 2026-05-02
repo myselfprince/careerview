@@ -100,7 +100,7 @@ export default function PopupForm({ onClose }) {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full mt-4 bg-blue-600 text-white font-bold py-4 rounded-lg hover:bg-blue-700 hover:shadow-lg transition-all flex justify-center items-center gap-2 group/btn"
+              className="w-full mt-4 bg-blue-600 text-white font-bold py-4 rounded-lg hover:bg-blue-700 hover:shadow-lg transition-all flex justify-center items-center gap-2 group/btn cursor-pointer"
             >
               SUBMIT <FaArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
             </button>
